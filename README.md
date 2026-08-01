@@ -10,7 +10,6 @@ This project analyzes sales data using MySQL.
 - GROUP BY
 - HAVING
 - Aggregate Functions (SUM, AVG, COUNT)
-- Joins
 - Subqueries
 - LIMIT
 
