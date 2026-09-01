@@ -104,7 +104,12 @@ ORDER BY TotalSales DESC
 LIMIT 1;
 
 -- Q9. Display the monthly sales trend using the Order Date.
-SELECT * FROM SALESDATA
+SELECT 
+    MONTHNAME(Order_Date) AS Sales_Month,
+    SUM(Sales) AS Total_Sales
+FROM salesdata
+GROUP BY MONTH(Order_Date), MONTHNAME(Order_Date)
+ORDER BY MONTH(Order_Date);
 -- Q10. Find the top 3 sub-category with the highest profit.
 SELECT `Sub-Category`,
        SUM(Profit) AS Total_Profit
@@ -177,7 +182,7 @@ select `Sub-category`, sum(profit) from salesdata
 group by `Sub-category`
 having sum(profit) >500000;
 
--- Q3 Find the customer who placed the highest number of orders.
+-- Q3 Find the customer who placed the highest order by Order ID.
 SELECT `Order ID`,
        SUM(Sales) AS Total_Sales
 FROM salesdata
